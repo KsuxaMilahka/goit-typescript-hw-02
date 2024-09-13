@@ -1,0 +1,23 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.image {
+    text-align: center;
+}
+
+.imageModal {
+    max-width: 100%;
+    height: auto;
+}
+
+.text {
+    margin-top: 10px;
+}

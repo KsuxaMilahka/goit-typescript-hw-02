@@ -1,0 +1,30 @@
+.imageCard {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* .img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img:hover {
+    transform: scale(1.05);
+} */
+
+.img {
+    width: 300px;
+    /* Встановіть бажану ширину */
+    height: 200px;
+    /* Встановіть бажану висоту */
+    object-fit: cover;
+    /* Зображення буде зберігати пропорції, заповнюючи контейнер */
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img:hover {
+    transform: scale(1.05);
+}
