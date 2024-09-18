@@ -1,7 +1,8 @@
-import ImageCard from '../ImageCard/ImageCard.jsx';
+import ImageCard from '../ImageCard/ImageCard.js';
 import style from './ImageGallery.module.css';
+import { ImagesGalleryProps } from './ImageGallery.types.js';
 
-const ImageGallery = ({ images, onClick }) => {
+const ImageGallery: React.FC<ImagesGalleryProps> = ({ images, onClick }) => {
   return (
     <ul className={style.imageGallery}>
       {images.map(image => (

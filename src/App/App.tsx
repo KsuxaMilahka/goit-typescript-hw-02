@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
-import SearchBar from './components/SearchBar/SearchBar';
-import ImageGallery from './components/ImageGallery/ImageGallery';
-import ErrorMessage from './components/ErrorMessage/ErrorMessage';
-import ImageModal from './components/ImageModal/ImageModal';
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
-import Loader from './components/Loader/Loader';
+import SearchBar from '../components/SearchBar/SearchBar';
+import ImageGallery from '../components/ImageGallery/ImageGallery';
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import ImageModal from '../components/ImageModal/ImageModal';
+import LoadMoreBtn from '../components/LoadMoreBtn/LoadMoreBtn';
+import Loader from '../components/Loader/Loader';
 import axios from 'axios';
+import { Image } from './App.types';
 
 const App = () => {
-  const [query, setQuery] = useState('');
-  const [images, setImages] = useState([]);
-  const [page, setPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [query, setQuery] = useState<string>('');
+  const [images, setImages] = useState<Image[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
   const fetchImages = async () => {
     setIsLoading(true);
@@ -48,7 +49,7 @@ const App = () => {
     }
   }, [query, page]);
 
-  const handleSearchSubmit = newQuery => {
+  const handleSearchSubmit = (newQuery: string) => {
     setQuery(newQuery);
     setPage(1);
     setImages([]);
@@ -58,7 +59,7 @@ const App = () => {
     setPage(prevPage => prevPage + 1);
   };
 
-  const handleImageClick = image => {
+  const handleImageClick = (image: Image) => {
     setSelectedImage(image);
   };
 
