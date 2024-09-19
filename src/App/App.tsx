@@ -6,7 +6,7 @@ import ImageModal from '../components/ImageModal/ImageModal';
 import LoadMoreBtn from '../components/LoadMoreBtn/LoadMoreBtn';
 import Loader from '../components/Loader/Loader';
 import axios from 'axios';
-import { Image } from './App.types';
+import { Image, ResponseData } from './App.types';
 
 const App = () => {
   const [query, setQuery] = useState<string>('');
@@ -20,7 +20,7 @@ const App = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await axios.get(
+      const response = await axios.get<ResponseData>(
         'https://api.unsplash.com/search/photos',
         {
           params: {
